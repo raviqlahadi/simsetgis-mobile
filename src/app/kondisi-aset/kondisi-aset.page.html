@@ -1,0 +1,60 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Kondisi Aset
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label>Kondisi</ion-label>
+      <ion-select [(ngModel)]="formData.kondisi" placeholder="Select One" name="kondisi">
+        <ion-select-option value="baik">Baik</ion-select-option>
+        <ion-select-option value="rusak ringan">Rusak Ringan</ion-select-option>
+        <ion-select-option value="rusak berat">Rusak Berat</ion-select-option>
+        <ion-select-option value="hilang">Hilang</ion-select-option>
+        <ion-select-option value="dikuasai pihak lain">Dikuasai Pihak Lain</ion-select-option>
+        <ion-select-option value="sebab lainnya">Sebab Lainnya</ion-select-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Keterangan</ion-label>
+      <ion-textarea required='true' [(ngModel)]="formData.keterangan" name='keterangan'></ion-textarea>
+    </ion-item>
+  </ion-list>
+  <ion-button  expand="block" color="secondary" (click)="getGeolocation()"> Ambil Kordinat <ion-icon slot="start" name="pin"></ion-icon>
+  </ion-button>
+  <p>Kordinat: {{kordinat}}</p>
+  <ion-list  *ngFor="let img of images; index as pos">
+      <ion-item text-wrap>
+        <ion-thumbnail slot="start">
+          <ion-img [src]="img.path"></ion-img>
+        </ion-thumbnail>
+        <ion-label>
+          {{ img.name }}
+        </ion-label>
+        <ion-button slot="end" fill="clear" (click)="deleteImage()">
+          <ion-icon slot="icon-only" name="trash"></ion-icon>
+        </ion-button>
+      </ion-item>
+      <ion-button  expand="block"  (click)="startUpload(img)"> Save <ion-icon slot="start" name="save"></ion-icon>
+      </ion-button>
+
+    </ion-list>
+
+
+
+
+
+</ion-content>
+<ion-footer>
+  <ion-toolbar color="primary">
+    <ion-button fill="clear" expand="full" color="light"(click)="selectImage()">
+    <ion-icon slot="start" name="camera"></ion-icon>  Select Image</ion-button>
+  </ion-toolbar>
+</ion-footer>

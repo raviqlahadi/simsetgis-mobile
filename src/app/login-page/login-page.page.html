@@ -1,0 +1,28 @@
+<ion-content color="primary" padding>
+  <ion-card padding-top style="background-color:#fff">
+    <ion-card-header text-center>
+      <div style="width:100%;padding-left:50px;padding-right:50px;text-align:center">
+          <img  id="img" src="/assets/kendari.png" alt="">
+      </div>
+      <ion-card-title color="primary">Bardcode BMD</ion-card-title>
+      <ion-card-subtitle>Silahkan Login Untuk Melanjutkan</ion-card-subtitle>
+    </ion-card-header>
+
+    <ion-card-content>
+
+      <form (ngSubmit)="getData()">
+        <ion-item>
+          <ion-label position="floating">Username</ion-label>
+          <ion-input [(ngModel)]="formData.username" name='username'></ion-input>
+        </ion-item>
+        <ion-item padding-bottom>
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" [(ngModel)]="formData.password" name='password'></ion-input>
+        </ion-item>
+
+        <ion-button type="submit" block>Login</ion-button>
+      </form>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

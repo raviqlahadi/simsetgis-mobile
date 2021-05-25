@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      SIMSETGIS
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+    <ion-card class="welcome-card">
+      <ion-img src="/assets/shapes.svg"></ion-img>
+      <ion-card-header>
+        <ion-card-subtitle>Hi user!</ion-card-subtitle>
+        <ion-card-title>Selamat Datang di Barcode BMD</ion-card-title>
+      </ion-card-header>
+      <ion-card-content>
+        <p>
+          Barcode BMD adalah Apliask Penunjang Simsetgis Kota Kendari Untuk Memudahkan Proses Invetaris Aset. Untuk informasi lebih lanjut silahkan kunjungi http://simsetgis.kendarikota.go.id
+        </p>
+      </ion-card-content>
+    </ion-card>
+    <div *ngIf="scannedData">
+      <ion-card>
+        <ion-card-content>
+          <p>Scanned Code Text : <b>{{scannedData['text']}}</b></p>
+          <p>Scanned Code Format : <b>{{scannedData['format']}}</b></p>
+        </ion-card-content>
+      </ion-card>
+    </div>
+    <ion-list lines="none">
+      <ion-list-header>
+        <ion-label>Informasi</ion-label>
+      </ion-list-header>
+      <ion-item href="http://simsetgis.technos-studio.com/home/panduan_mobile">
+        <ion-icon slot="start" color="medium" name="book"></ion-icon>
+        <ion-label>Panduan Untuk Admin Aset</ion-label>
+      </ion-item>
+      <ion-item href="http://simsetgis.technos-studio.com/home/panduan_akun">
+        <ion-icon slot="start" color="medium" name="key"></ion-icon>
+        <ion-label>Panduan membuat akun simsetgis mobile</ion-label>
+      </ion-item>
+    </ion-list>
+    <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button (click)="scanCode()">
+      <ion-icon name="qr-scanner"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>

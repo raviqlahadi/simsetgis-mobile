@@ -1,0 +1,7 @@
+{
+  "name": "SimsetMobile",
+  "integrations": {
+    "cordova": {}
+  },
+  "type": "angular"
+}
